@@ -5,3 +5,5 @@
 raw_data/
 **/__pycache__/
 .env
+Sparkify_DataLakes/dl.cfg
+Sparkify_DataLakes/data/
