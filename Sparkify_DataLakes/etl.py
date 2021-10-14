@@ -15,7 +15,6 @@ os.environ['AWS_ACCESS_KEY_ID']=config['AWS']['AWS_ACCESS_KEY_ID']
 os.environ['AWS_SECRET_ACCESS_KEY']=config['AWS']['AWS_SECRET_ACCESS_KEY']
 
 
-
 def create_spark_session():
     spark = SparkSession \
         .builder \
@@ -27,7 +26,7 @@ def create_spark_session():
 def process_song_data(spark, input_data, output_data):
     # get filepath to song data file
     song_data = os.path.join(input_data, "song_data/*/*/*/*.json")
-    
+    # import ipdb; ipdb.set_trace()
     # read song data file
     df = spark.read.json(song_data)
 
