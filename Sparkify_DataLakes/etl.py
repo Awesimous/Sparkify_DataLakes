@@ -23,9 +23,9 @@ def create_spark_session():
 
 
 def process_song_data(spark, input_data, output_data):
+    
     # get filepath to song data file
     song_data = os.path.join(input_data, "song_data/A/A/A/*.json")
-    # import ipdb; ipdb.set_trace()
     # read song data file
     df = spark.read.json(song_data)
 
@@ -61,7 +61,7 @@ def process_log_data(spark, input_data, output_data):
     users_table.write.mode("overwrite").parquet(os.path.join(output_data, 'users'))
 
     # create timestamp column from original timestamp column
-    get_timestamp = udf(lambda x: str(from_unixtime(x)))
+    get_timestamp = udf(lambda x: str(from_unixtime(x/1000)))
     df = df.withColumn("timestamp", get_timestamp(col("ts")))
     
     # create datetime column from original timestamp column

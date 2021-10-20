@@ -6,13 +6,8 @@ How do we do this? By accompanying you with the best-fit for your taste. We ensu
 
 # Startup the project
 
-The aim of the project is to empower our data analytics with the most effective structure possible, on the AWS Cloud using Spark!
-For that reason, we build a ETL pipeline for extracting data from s3, processes the data using Spark according to the need of data analytics team and load the transformed dimensional tables back to S3. 
-With the Cloud approach we want data that:
-
-- is easily accessible,
-- has a structure that is easy to understand,
-- can be analysed by SQL queries.
+The aim of the project is to empower our data analytics with the most effective structure possible, using Spark Data Lakes!
+For that reason, we build a ETL pipeline for wrangling data with Spark, using S3 to load and save data. 
 
 # Point of Origin
 
@@ -98,17 +93,21 @@ Fields: start_time, hour, day, week, month, year, weekday
 ## Explanation of files
 __Files only work if a Cluster is up and running on Redshift__
 
-tbd
+The project workspace includes six files:
+
+- etl.py reads and processes files from song_data and log_data buckets stored in S3 and reads them into a Spark dataframe for data wrangling before being saved as a parquet file.
 
 ## How to run
 
-tbd
+### The data-sources are provided by two S3 buckets 
+
+- Song data: s3://udacity-dend/song_data
+- Log data: s3://udacity-dend/log_data
+
+### You need a AWS Redshift Cluster up and running
 
 
-__Run the drive program main.py__
+__Run the python file etl.py__
 
-tbd
-
-__The create_tables.py and etl.py file can also be run independently__
-
-tbd
+- python etl.py
+- lean back
